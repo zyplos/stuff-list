@@ -6,6 +6,7 @@ import x2Back from "@/assets/strange-3ds/x2-back.jpg";
 
 export const alwaysActiveItems: Item[] = [
   {
+    id: "kit-kats",
     name: "kit kats",
     description:
       "bring back all the ones you find. don't bring ones you've seen in the US already",
@@ -15,6 +16,7 @@ export const alwaysActiveItems: Item[] = [
 
 export const doableItems: Item[] = [
   {
+    id: "rare-3ds",
     name: "rare 3ds thing",
     description: "bring back any weird looking 3DSes you find",
     images: [redBlue, x1b, x2, x2Back],

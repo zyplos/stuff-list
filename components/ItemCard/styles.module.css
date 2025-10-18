@@ -1,0 +1,131 @@
+/* Card Container */
+.card {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-l);
+  padding: var(--space-m);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+/* Image Stack */
+.imageStack {
+  position: relative;
+  height: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.firstImage {
+  position: relative;
+}
+
+.stackedImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+/* Content */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.itemName {
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-heading);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.infoAlert {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: var(--color-alert-info-bg);
+  color: var(--color-alert-info-text);
+  padding: var(--space-xs) var(--space-s);
+  border-radius: var(--radius-s);
+  font-size: var(--font-size-s);
+}
+
+.infoIcon {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size);
+}
+
+.description {
+  font-size: var(--font-size);
+  color: var(--color-text);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: var(--space-s);
+}
+
+.foundButton {
+  background: #22c55e;
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-s) var(--space-m);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.foundButton:hover {
+  background: #16a34a;
+}
+
+.foundButton:active {
+  background: #15803d;
+}
+
+.expensiveButton {
+  background: #d97706;
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-s) var(--space-m);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.expensiveButton:hover {
+  background: #b45309;
+}
+
+.expensiveButton:active {
+  background: #92400e;
+}
