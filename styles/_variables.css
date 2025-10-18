@@ -57,12 +57,12 @@
   color-scheme: dark;
 
   --color-text: #fff5f5;
-  --color-background-lighter: #1f2936;
-  --color-background: #17202b;
-  --color-background-secondary: #11151a;
-  --color-background-tertiary: #0d0f11;
+  --color-background-lighter: #382929;
+  --color-background: #201919;
+  --color-background-secondary: #181414;
+  --color-background-tertiary: #080808;
 
-  --color-primary: #1d9bf0;
+  --color-primary: #ff3e3e;
   --color-secondary: #ffd300;
   --color-accent: #fff;
   --color-highlight: #ff4000;
@@ -82,6 +82,6 @@
   --color-button-hover-background: #ff5555;
   --color-button-active-background: #e72828;
 
-  --color-card-bg: #4a403e;
-  --color-card-bg-secondary: #332c2b;
+  --color-card-bg: #473a3a;
+  --color-card-bg-secondary: #493a3a;
 }

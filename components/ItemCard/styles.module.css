@@ -20,8 +20,8 @@
 
 .imageContainer {
   position: relative;
-  width: 8rem;
-  height: 8rem;
+  width: 12rem;
+  height: 12rem;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
@@ -63,16 +63,14 @@
   display: flex;
   align-items: center;
   gap: var(--space-xs);
-  background: var(--color-alert-info-bg);
-  color: var(--color-alert-info-text);
-  padding: var(--space-xs) var(--space-s);
-  border-radius: var(--radius-s);
+  color: var(--color-primary);
   font-size: var(--font-size-s);
+  font-weight: var(--font-weight-bold);
 }
 
 .infoIcon {
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size);
+  width: 1.5em;
+  height: 1.5em;
 }
 
 .description {
@@ -90,42 +88,48 @@
   margin-top: var(--space-s);
 }
 
-.foundButton {
-  background: #22c55e;
-  color: white;
+.button {
   border: none;
   border-radius: var(--radius);
   padding: var(--space-s) var(--space-m);
   font-size: var(--font-size);
   font-weight: var(--font-weight-bold);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition:
+    background-color 150ms ease,
+    scale 150ms ease-out;
+}
+
+.button:hover {
+  scale: 1.01;
+}
+
+.button:active {
+  scale: 0.99;
+}
+
+.foundButton {
+  background: #00aa3e;
+  color: white;
 }
 
 .foundButton:hover {
-  background: #16a34a;
+  background: #01be47;
 }
 
 .foundButton:active {
-  background: #15803d;
+  background: #007e2e;
 }
 
 .expensiveButton {
-  background: #d97706;
+  background: #72685c;
   color: white;
-  border: none;
-  border-radius: var(--radius);
-  padding: var(--space-s) var(--space-m);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight-bold);
-  cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
 .expensiveButton:hover {
-  background: #b45309;
+  background: #918372;
 }
 
 .expensiveButton:active {
-  background: #92400e;
+  background: #312721;
 }
