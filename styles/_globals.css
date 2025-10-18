@@ -1,0 +1,122 @@
+/* ===== global styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+body {
+  color: var(--color-text);
+  background-color: var(--color-background);
+
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-body);
+  line-height: 1.2;
+}
+
+/* required by Base UI */
+.root {
+  isolation: isolate;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-heading);
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+}
+
+h2 {
+  font-size: var(--font-size-l);
+}
+
+h3 {
+  font-size: var(--font-size-m);
+}
+
+h4,
+h5,
+h6 {
+  font-size: var(--font-size);
+}
+
+pre {
+  font-family: var(--font-monospace);
+  overflow-x: auto;
+}
+
+code {
+  font-family: var(--font-monospace);
+  font-size: inherit;
+}
+
+a {
+  color: var(--color-link);
+}
+
+/* ===== global classes */
+.monospace {
+  font-family: var(--font-monospace);
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.textMuted {
+  color: var(--color-muted);
+}
+
+.bottomSpaceMargin {
+  margin-bottom: var(--space);
+}
+
+.sectionMargin {
+  margin-bottom: var(--space-xl);
+}
+
+.paragraphMargin {
+  margin-bottom: var(--space-l);
+}
+
+.textContent {
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    margin-bottom: var(--space);
+  }
+
+  > p {
+    margin-top: var(--space);
+  }
+}
+
+.responsiveCenteredContainer {
+  width: var(--max-width-percent);
+  max-width: var(--max-width-pixel);
+  margin-left: auto;
+  margin-right: auto;
+}
