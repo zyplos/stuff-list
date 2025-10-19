@@ -11,6 +11,7 @@ import dsiSoftware from "@/assets/strange-dsi/software.png";
 
 import plushSmeargle from "@/assets/plush/smeargle.jpg";
 import plushVictini from "@/assets/plush/victini.jpg";
+import unownPin from "@/assets/unown-pin.jpg";
 
 import disk64 from "@/assets/odd-software/disk64.jpg";
 import diskWii from "@/assets/odd-software/wii.jpeg";
@@ -22,6 +23,12 @@ import diskunDisk from "@/assets/diskun/disk.png";
 
 import nintendoZoneOpen from "@/assets/nintendo-zone/open.png";
 import nintendoZoneOn from "@/assets/nintendo-zone/on.png";
+
+import shellosEastImg from "@/assets/pokemon-go/shellos-east.jpg";
+import tatsugiriStretchyImg from "@/assets/pokemon-go/tatsugiri-stretchy.jpg";
+import taurosImg from "@/assets/pokemon-go/tauros-paldean-blaze-form.jpg";
+import uxieImg from "@/assets/pokemon-go/uxie.jpg";
+import volbeatImg from "@/assets/pokemon-go/volbeat.jpg";
 
 import ddDisk from "@/assets/64dd-disk.jpg";
 import downloadStationCard from "@/assets/download-station-card.png";
@@ -133,7 +140,7 @@ export const normalItems: Item[] = [
     id: "smeargle-plush",
     name: "smeargle plush",
     description:
-      "you'll find this in the pokemon center which you'll probably go to",
+      "you might find this in the pokemon center which you'll probably go to",
     images: [plushSmeargle],
   },
 
@@ -141,8 +148,16 @@ export const normalItems: Item[] = [
     id: "victini-plush",
     name: "victini plush",
     description:
-      "you'll find this in the pokemon center which you'll probably go to",
+      "you might find this in the pokemon center which you'll probably go to",
     images: [plushVictini],
+  },
+
+  {
+    id: "unown-pin",
+    name: "unown pin",
+    description:
+      "you'll find this in the pokemon center which you'll probably go to",
+    images: [unownPin],
   },
 
   {
@@ -173,5 +188,40 @@ export const normalItems: Item[] = [
       name: "@sawarasan",
       url: "https://www.youtube.com/watch?v=zpU1WiyI3no",
     },
+  },
+
+  {
+    id: "shellos-east",
+    name: "east sea shellos",
+    description: "pokemon go regional exclusive",
+    images: [shellosEastImg],
+  },
+
+  {
+    id: "tatsugiri-stretchy",
+    name: "stretchy tatsugiri",
+    description: "pokemon go regional exclusive",
+    images: [tatsugiriStretchyImg],
+  },
+
+  {
+    id: "tauros-paldean-blaze-form",
+    name: "tauros paldean blaze form",
+    description: "pokemon go regional exclusive",
+    images: [taurosImg],
+  },
+
+  {
+    id: "volbeat",
+    name: "volbeat",
+    description: "pokemon go regional exclusive",
+    images: [volbeatImg],
+  },
+
+  {
+    id: "uxie",
+    name: "uxie",
+    description: "pokemon go regional exclusive",
+    images: [uxieImg],
   },
 ];
