@@ -3,11 +3,11 @@ import x1b from "@/assets/strange-3ds/x1b.jpg";
 import x2 from "@/assets/strange-3ds/x2.jpg";
 import x2Back from "@/assets/strange-3ds/x2-back.jpg";
 
-import kitKats from "@/assets/kit-kats/seafood.png";
+import kitKats from "@/assets/kit-kats/seafood.jpg";
 
-import dsiFront from "@/assets/strange-dsi/front.png";
-import dsiBack from "@/assets/strange-dsi/back.png";
-import dsiSoftware from "@/assets/strange-dsi/software.png";
+import dsiFront from "@/assets/strange-dsi/front.jpg";
+import dsiBack from "@/assets/strange-dsi/back.jpg";
+import dsiSoftware from "@/assets/strange-dsi/software.jpg";
 
 import plushSmeargle from "@/assets/plush/smeargle.jpg";
 import plushVictini from "@/assets/plush/victini.jpg";
@@ -15,14 +15,14 @@ import unownPin from "@/assets/unown-pin.jpg";
 
 import disk64 from "@/assets/odd-software/disk64.jpg";
 import diskWii from "@/assets/odd-software/wii.jpeg";
-import diskWiiBackup from "@/assets/odd-software/wii-backup.png";
+import diskWiiBackup from "@/assets/odd-software/wii-backup.jpg";
 import diskWiiU from "@/assets/odd-software/wiiu.jpg";
 
-import diskun from "@/assets/diskun/diskun.png";
-import diskunDisk from "@/assets/diskun/disk.png";
+import diskun from "@/assets/diskun/diskun.jpg";
+import diskunDisk from "@/assets/diskun/disk.jpg";
 
-import nintendoZoneOpen from "@/assets/nintendo-zone/open.png";
-import nintendoZoneOn from "@/assets/nintendo-zone/on.png";
+import nintendoZoneOpen from "@/assets/nintendo-zone/open.jpg";
+import nintendoZoneOn from "@/assets/nintendo-zone/on.jpg";
 
 import shellosEastImg from "@/assets/pokemon-go/shellos-east.jpg";
 import tatsugiriStretchyImg from "@/assets/pokemon-go/tatsugiri-stretchy.jpg";
@@ -31,12 +31,12 @@ import uxieImg from "@/assets/pokemon-go/uxie.jpg";
 import volbeatImg from "@/assets/pokemon-go/volbeat.jpg";
 
 import ddDisk from "@/assets/64dd-disk.jpg";
-import downloadStationCard from "@/assets/download-station-card.png";
+import downloadStationCard from "@/assets/download-station-card.jpg";
 import museumGacha from "@/assets/museum-gacha.jpg";
-import famicomKeyboard from "@/assets/famicom-keyboard.png";
+import famicomKeyboard from "@/assets/famicom-keyboard.jpg";
 import serverGacha from "@/assets/server-gacha.jpeg";
 import serverGacha2 from "@/assets/server-gacha-2.jpeg";
-import cpuGacha from "@/assets/cpu-gacha.png";
+import cpuGacha from "@/assets/cpu-gacha.jpg";
 
 export const alwaysActiveItems: Item[] = [
   {
