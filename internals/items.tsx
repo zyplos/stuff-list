@@ -1,5 +1,4 @@
 import type { Item } from "./types";
-import redBlue from "@/assets/strange-3ds/red-blue.jpg";
 import x1b from "@/assets/strange-3ds/x1b.jpg";
 import x2 from "@/assets/strange-3ds/x2.jpg";
 import x2Back from "@/assets/strange-3ds/x2-back.jpg";
@@ -16,16 +15,20 @@ export const alwaysActiveItems: Item[] = [
   },
 ];
 
-export const doableItems: Item[] = [
+export const rareItems: Item[] = [
   {
     id: "rare-3ds",
-    name: "rare 3ds thing",
-    description: "bring back any weird looking 3DSes you find",
-    images: [redBlue, x1b, x2, x2Back],
+    name: "odd looking 3DS",
+    description:
+      "bring back any weird looking 3DSes you find. make sure its not a region exclusive thing that you haven't seen and only sold in japan",
+    images: [x1b, x2, x2Back],
     unlikelyToFind: true,
+    maxBudget: "300 USD",
     credits: {
       name: "me",
       url: "https://google.com",
     },
   },
 ];
+
+export const normalItems: Item[] = [];

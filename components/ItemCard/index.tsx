@@ -7,12 +7,14 @@ import styles from "./styles.module.css";
 
 interface ItemCardProps extends React.HTMLAttributes<HTMLDivElement> {
   item: Item;
+  alwaysActive?: boolean;
   onFoundIt?: () => void;
   onSawButExpensive?: () => void;
 }
 
 export default function ItemCard({
   item,
+  alwaysActive,
   onFoundIt,
   onSawButExpensive,
   className,
@@ -136,22 +138,30 @@ export default function ItemCard({
 
           <p className={styles.description}>{item.description}</p>
 
-          <div className={styles.buttons}>
-            <button
-              className={clsx(styles.button, styles.foundButton)}
-              onClick={onFoundIt}
-              type="button"
-            >
-              Found it!
-            </button>
-            <button
-              className={clsx(styles.button, styles.expensiveButton)}
-              onClick={onSawButExpensive}
-              type="button"
-            >
-              Saw it, but too expensive to get
-            </button>
-          </div>
+          {item.maxBudget && (
+            <p className={styles.description}>Max budget: {item.maxBudget}</p>
+          )}
+
+          {!alwaysActive && (
+            <div className={styles.buttons}>
+              <button
+                className={clsx(styles.button, styles.foundButton)}
+                onClick={onFoundIt}
+                type="button"
+              >
+                Got it!
+              </button>
+              {item.maxBudget && (
+                <button
+                  className={clsx(styles.button, styles.expensiveButton)}
+                  onClick={onSawButExpensive}
+                  type="button"
+                >
+                  Saw it, but too expensive to get
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
@@ -205,7 +215,10 @@ export default function ItemCard({
           <div className={styles.overlayBody}>
             <div className={styles.expandedGrid}>
               {item.images.map((image, index) => (
-                <motion.div key={`${item.id}-image-${index}`}>
+                <div
+                  key={`${item.id}-image-${index}`}
+                  className={styles.expandedImageWrapper}
+                >
                   <Image
                     src={image}
                     alt={`${item.name} ${index + 1}`}
@@ -213,7 +226,7 @@ export default function ItemCard({
                     height={512}
                     className={styles.expandedImage}
                   />
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>

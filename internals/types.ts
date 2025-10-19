@@ -6,6 +6,7 @@ export type Item = {
   description: string;
   images: StaticImageData[];
   unlikelyToFind?: boolean;
+  maxBudget?: string;
   credits?: {
     name: string;
     url: string;

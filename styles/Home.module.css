@@ -2,10 +2,15 @@
   padding: var(--space-m);
 }
 
+.cardList {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-l);
+}
+
 @media screen and (min-width: 1200px) {
   .cardList {
     display: grid;
-    gap: var(--space-l);
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   }
 }
