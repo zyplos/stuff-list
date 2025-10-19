@@ -170,12 +170,14 @@ export default function ItemCard({
         className={clsx(styles.overlay, {
           [styles.overlayHidden]: !isExpanded,
         })}
+        initial={{ opacity: 0 }}
         animate={{ opacity: isExpanded ? 1 : 0 }}
         transition={{ duration: 0.15 }}
         onClick={handleClose}
       >
         <motion.div
           className={styles.overlayContent}
+          initial={{ opacity: 0 }}
           animate={{
             scale: isExpanded ? 1 : 0.9,
             opacity: isExpanded ? 1 : 0,

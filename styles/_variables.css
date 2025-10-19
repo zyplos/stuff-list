@@ -40,7 +40,7 @@
   --textFrameX: calc(var(--textFrameY) * var(--textFrameRatio));
 
   /* sizes */
-  --max-width-percent: 75%;
+  --max-width-percent: 85%;
   --max-width-pixel: 1280px;
 
   --radius-xs: 10px;
