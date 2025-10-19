@@ -1,0 +1,31 @@
+.navbarWrapper {
+  padding: var(--space-m);
+  background-color: var(--color-background-secondary);
+
+  position: fixed;
+  top: 0;
+
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-m);
+}
+
+.timeWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.timeWrapper svg {
+  width: 1.3em;
+  height: 1.3em;
+}
