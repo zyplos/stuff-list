@@ -21,13 +21,13 @@ export default function Home() {
         <div className="textContent sectionMargin">
           <h1>hi guys</h1>
           <p>you gotta bring these back for me thank you</p>
-          <p>keep recipes and i will pay it back</p>
+          <p>keep receipts and i will pay it back</p>
           <p>here's the list:</p>
         </div>
 
         <div className="textContent bottomSpaceMargin">
           <h2>always active</h2>
-          <p>find as many of these as you can</p>
+          <p>grab these when you see em</p>
         </div>
         <div className={clsx(styles.cardList, "sectionMargin")}>
           {alwaysActiveItems.map((item) => (
@@ -38,10 +38,11 @@ export default function Home() {
         <div className="textContent bottomSpaceMargin">
           <h2>the rare</h2>
           <p>
-            you probably won't find these but you never know. some of these come
-            with max budgets in case i'm not online for you to ask me about it.
-            some of these don't have a budget but i'm sure it'll be obvious if
-            its a reasonable price or not
+            here's some stuff that is impossible to come by here in the US but
+            that you might see in japan. some of these come with max budgets in
+            case i'm not online for you to ask me about it. others don't have a
+            budget but i'm sure it'll be obvious if its a reasonable price or
+            not
           </p>
         </div>
         <div className={clsx(styles.cardList, "sectionMargin")}>

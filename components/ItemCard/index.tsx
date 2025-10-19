@@ -86,28 +86,28 @@ export default function ItemCard({
                         x: "-33%",
                         y: "-33%",
                         rotate: "5deg",
-                        transition: { duration: 0.1, ease: "easeOut" },
+                        transition: { duration: 0.05, ease: "easeOut" },
                       }
                     : index === 2
                       ? {
                           x: "-75%",
                           y: "-60%",
                           rotate: "-4deg",
-                          transition: { duration: 0.1, ease: "easeOut" },
+                          transition: { duration: 0.05, ease: "easeOut" },
                         }
                       : index === 3
                         ? {
                             x: "-20%",
                             y: "-60%",
                             rotate: "3deg",
-                            transition: { duration: 0.1, ease: "easeOut" },
+                            transition: { duration: 0.05, ease: "easeOut" },
                           }
                         : index === 4
                           ? {
                               x: "-35%",
                               y: "-45%",
                               rotate: "-2deg",
-                              transition: { duration: 0.1, ease: "easeOut" },
+                              transition: { duration: 0.05, ease: "easeOut" },
                             }
                           : {},
               }}
@@ -130,16 +130,16 @@ export default function ItemCard({
           {item.unlikelyToFind && (
             <div className={styles.infoAlert}>
               <InfoIcon className={styles.infoIcon} />
-              <span>
-                You're unlikely to find this but keep a lookout for it!
-              </span>
+              <span>You're unlikely to find this but keep a lookout</span>
             </div>
           )}
 
-          <p className={styles.description}>{item.description}</p>
+          <div className={clsx(styles.description, "textContent")}>
+            <p>{item.description}</p>
+          </div>
 
           {item.maxBudget && (
-            <p className={styles.description}>Max budget: {item.maxBudget}</p>
+            <p className="bold">Max budget: {item.maxBudget}</p>
           )}
 
           {!alwaysActive && (
@@ -189,18 +189,14 @@ export default function ItemCard({
               {item.credits && (
                 <p className={styles.overlayMeta}>
                   Credits:{" "}
-                  {item.credits.url ? (
-                    <a
-                      href={item.credits.url}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className={styles.overlayLink}
-                    >
-                      @{item.credits.name}
-                    </a>
-                  ) : (
-                    <>@{item.credits.name}</>
-                  )}
+                  <a
+                    href={item.credits.url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className={styles.overlayLink}
+                  >
+                    {item.credits.name}
+                  </a>
                 </p>
               )}
             </div>
