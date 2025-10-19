@@ -9,6 +9,15 @@ import dsiFront from "@/assets/strange-dsi/front.png";
 import dsiBack from "@/assets/strange-dsi/back.png";
 import dsiSoftware from "@/assets/strange-dsi/software.png";
 
+import plushSmeargle from "@/assets/plush/smeargle.jpg";
+import plushVictini from "@/assets/plush/victini.jpg";
+
+import ddDisk from "@/assets/64dd-disk.jpg";
+
+import disk64 from "@/assets/odd-software/disk64.jpg";
+
+import diskun from "@/assets/diskun.png";
+
 export const alwaysActiveItems: Item[] = [
   {
     id: "kit-kats",
@@ -16,6 +25,16 @@ export const alwaysActiveItems: Item[] = [
     description:
       "bring back all the ones you find\ndon't bring ones you've seen in the US already",
     images: [kitKats],
+  },
+
+  {
+    id: "odd-software",
+    name: "odd software",
+    description:
+      "if you find something that looks weird it is of interest of me",
+    images: [disk64],
+    unlikelyToFind: true,
+    maxBudget: "50 USD",
   },
 ];
 
@@ -47,6 +66,38 @@ export const rareItems: Item[] = [
       url: "https://consolevariations.com/collectibles/nintendo-dsi-panda-development-unit-eu",
     },
   },
+
+  {
+    id: "dd-disk",
+    name: "an n64 disk",
+    description: "these can also come in blue",
+    images: [ddDisk],
+    unlikelyToFind: true,
+    maxBudget: "50 USD",
+  },
+
+  {
+    id: "diskun",
+    name: "something diskun related",
+    description: "anything will do",
+    images: [diskun],
+    maxBudget: "25 USD",
+  },
 ];
 
-export const normalItems: Item[] = [];
+export const normalItems: Item[] = [
+  {
+    id: "smeargle-plush",
+    name: "smeargle plush",
+    description:
+      "you'll find this in the pokemon center which you'll probably go to",
+    images: [plushSmeargle],
+  },
+  {
+    id: "victini-plush",
+    name: "victini plush",
+    description:
+      "you'll find this in the pokemon center which you'll probably go to",
+    images: [plushVictini],
+  },
+];
