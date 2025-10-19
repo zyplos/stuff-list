@@ -1,4 +1,5 @@
 /* Card Container */
+/** biome-ignore-all lint/complexity/noImportantStyles: needed */
 .card {
   background: var(--color-card-bg);
   border-radius: var(--radius-l);
@@ -16,6 +17,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 100%;
 }
 
 .imageContainer {
@@ -36,6 +42,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: transform 150ms ease-out;
 }
 
 .image {
@@ -132,4 +139,84 @@
 
 .expensiveButton:active {
   background: #312721;
+}
+
+/* Overlay Styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: var(--space-m);
+}
+
+.overlayHidden {
+  pointer-events: none;
+}
+
+.overlayContent {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-l);
+  padding: var(--space-m);
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--space-s);
+  right: var(--space-s);
+  background: #72685c;
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-xs) var(--space-s);
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: background-color 150ms ease;
+  z-index: 10;
+}
+
+.closeButton:hover {
+  background: #918372;
+}
+
+.closeButton:active {
+  background: #312721;
+}
+
+/* Expanded Grid */
+.expandedGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-m);
+  justify-content: center;
+  margin-top: var(--space-l);
+}
+
+.expandedImageContainer {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+  max-width: 20rem;
+  max-height: 20rem;
+}
+
+.expandedImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius);
 }

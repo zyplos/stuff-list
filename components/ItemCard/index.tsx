@@ -1,5 +1,7 @@
 import Image from "next/image";
 import clsx from "clsx";
+import { motion } from "motion/react";
+import { useState } from "react";
 import type { Item } from "@/internals/types";
 import styles from "./styles.module.css";
 
@@ -16,67 +18,173 @@ export default function ItemCard({
   className,
   ...props
 }: ItemCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleImageStackClick = () => {
+    setIsExpanded(true);
+  };
+
+  const handleClose = () => {
+    setIsExpanded(false);
+  };
+
   return (
-    <div className={clsx(styles.card, className)} {...props}>
-      {/* Image Stack */}
-      <div className={styles.imageStack}>
-        {item.images.map((image, index) => (
-          <div
-            key={`${item.id}-image-${index}`}
-            className={clsx(styles.imageContainer, {
-              [styles.firstImage]: index === 0,
-              [styles.stackedImage]: index > 0,
-            })}
-            style={{
-              transform:
-                index > 0
-                  ? `translate(-50%, -50%) rotate(${index % 2 === 0 ? "5deg" : "-4deg"})`
-                  : undefined,
-              zIndex: item.images.length - index,
-            }}
-          >
-            <Image
-              src={image}
-              alt={`${item.name} ${index + 1}`}
-              width={512}
-              height={512}
-              className={styles.image}
-            />
+    <>
+      <div className={clsx(styles.card, className)} {...props}>
+        {/* Image Stack */}
+        <motion.button
+          className={styles.imageStack}
+          onClick={handleImageStackClick}
+          type="button"
+          aria-label="View image gallery"
+          whileHover="hover"
+          initial="rest"
+        >
+          {item.images.map((image, index) => (
+            <motion.div
+              key={`${item.id}-image-${index}`}
+              layoutId={`${item.id}-image-${index}`}
+              className={clsx(styles.imageContainer, {
+                [styles.firstImage]: index === 0,
+                [styles.stackedImage]: index > 0,
+              })}
+              style={{
+                // transform:
+                //   index > 0
+                //     ? `translate(-50%, -50%) rotate(${index % 2 === 0 ? "5deg" : "-4deg"})`
+                //     : undefined,
+                zIndex: item.images.length - index,
+
+                ...(index > 0 && {
+                  x: "-50%",
+                  y: "-50%",
+                  rotate: index % 2 === 0 ? "5deg" : "-4deg",
+                }),
+              }}
+              variants={{
+                rest: {},
+                hover:
+                  index === 1
+                    ? {
+                        x: "-50%",
+                        y: "-65%",
+                        rotate: "5deg",
+                        transition: { duration: 0.1, ease: "easeOut" },
+                      }
+                    : index === 2
+                      ? {
+                          x: "-55%",
+                          y: "-65%",
+                          rotate: "-4deg",
+                          transition: { duration: 0.1, ease: "easeOut" },
+                        }
+                      : index === 3
+                        ? {
+                            x: "-45%",
+                            y: "-55%",
+                            rotate: "3deg",
+                            transition: { duration: 0.1, ease: "easeOut" },
+                          }
+                        : index === 4
+                          ? {
+                              x: "-35%",
+                              y: "-45%",
+                              rotate: "-2deg",
+                              transition: { duration: 0.1, ease: "easeOut" },
+                            }
+                          : {},
+              }}
+            >
+              <Image
+                src={image}
+                alt={`${item.name} ${index + 1}`}
+                width={512}
+                height={512}
+                className={styles.image}
+              />
+            </motion.div>
+          ))}
+        </motion.button>
+
+        {/* Content */}
+        <div className={styles.content}>
+          <h3 className={styles.itemName}>{item.name}</h3>
+
+          {item.unlikelyToFind && (
+            <div className={styles.infoAlert}>
+              <InfoIcon className={styles.infoIcon} />
+              <span>
+                You're unlikely to find this but keep a lookout for it!
+              </span>
+            </div>
+          )}
+
+          <p className={styles.description}>{item.description}</p>
+
+          <div className={styles.buttons}>
+            <button
+              className={clsx(styles.button, styles.foundButton)}
+              onClick={onFoundIt}
+              type="button"
+            >
+              Found it!
+            </button>
+            <button
+              className={clsx(styles.button, styles.expensiveButton)}
+              onClick={onSawButExpensive}
+              type="button"
+            >
+              Saw it, but too expensive to get
+            </button>
           </div>
-        ))}
-      </div>
-
-      {/* Content */}
-      <div className={styles.content}>
-        <h3 className={styles.itemName}>{item.name}</h3>
-
-        {item.unlikelyToFind && (
-          <div className={styles.infoAlert}>
-            <InfoIcon className={styles.infoIcon} />
-            <span>You're unlikely to find this but keep a lookout for it!</span>
-          </div>
-        )}
-
-        <p className={styles.description}>{item.description}</p>
-
-        <div className={styles.buttons}>
-          <button
-            className={clsx(styles.button, styles.foundButton)}
-            onClick={onFoundIt}
-            type="button"
-          >
-            Found it!
-          </button>
-          <button
-            className={clsx(styles.button, styles.expensiveButton)}
-            onClick={onSawButExpensive}
-            type="button"
-          >
-            Saw it, but too expensive to get
-          </button>
         </div>
       </div>
-    </div>
+
+      {/* Expanded Gallery Overlay */}
+      <motion.div
+        className={clsx(styles.overlay, {
+          [styles.overlayHidden]: !isExpanded,
+        })}
+        animate={{ opacity: isExpanded ? 1 : 0 }}
+        transition={{ duration: 0.2 }}
+        onClick={handleClose}
+      >
+        <motion.div
+          className={styles.overlayContent}
+          animate={{
+            scale: isExpanded ? 1 : 0.8,
+            opacity: isExpanded ? 1 : 0,
+          }}
+          transition={{ duration: 0.2 }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            className={styles.closeButton}
+            onClick={handleClose}
+            type="button"
+          >
+            Close
+          </button>
+          <div className={styles.expandedGrid}>
+            {item.images.map((image, index) => (
+              <motion.div
+                key={`${item.id}-image-${index}`}
+                layoutId={`${item.id}-image-${index}`}
+                // className={styles.expandedImageContainer}
+              >
+                <Image
+                  src={image}
+                  alt={`${item.name} ${index + 1}`}
+                  width={512}
+                  height={512}
+                  className={styles.expandedImage}
+                />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
+    </>
   );
 }
 
