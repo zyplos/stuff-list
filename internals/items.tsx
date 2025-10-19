@@ -38,6 +38,7 @@ import serverGacha from "@/assets/server-gacha.jpeg";
 import serverGacha2 from "@/assets/server-gacha-2.jpeg";
 import cpuGacha from "@/assets/cpu-gacha.jpg";
 import mother3 from "@/assets/mother3.jpg";
+import caveStory from "@/assets/cave-story.jpg";
 
 export const alwaysActiveItems: Item[] = [
   {
@@ -50,9 +51,9 @@ export const alwaysActiveItems: Item[] = [
 
   {
     id: "odd-software",
-    name: "odd software",
+    name: "odd looking software",
     description:
-      "if you find something that looks weird it is of interest of me",
+      "if you find something you've never seen before that looks weird it is of interest of me",
     images: [disk64, diskWiiU, diskWiiBackup, diskWii],
     unlikelyToFind: true,
     maxBudget: "50 USD",
@@ -172,7 +173,7 @@ export const normalItems: Item[] = [
   {
     id: "server-gacha",
     name: "server gacha",
-    description: "if you happen to be nearby this thing please grab me a thing",
+    description: "if you happen to be nearby this please grab me a thing",
     images: [serverGacha, serverGacha2],
     credits: {
       name: "u/swake88",
@@ -197,6 +198,13 @@ export const normalItems: Item[] = [
     description: "low ball offer",
     maxBudget: "25 USD",
     images: [mother3],
+  },
+
+  {
+    id: "cave-story",
+    name: "something 洞窟物語 related",
+    description: "do not bring me a copy of the game on any system",
+    images: [caveStory],
   },
 
   {
