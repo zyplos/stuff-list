@@ -167,10 +167,10 @@ export default function ItemCard({
         <motion.div
           className={styles.overlayContent}
           animate={{
-            scale: isExpanded ? 1 : 0.8,
+            scale: isExpanded ? 1 : 0.9,
             opacity: isExpanded ? 1 : 0,
           }}
-          transition={{ duration: 0.15 }}
+          transition={{ duration: 0.1 }}
           onClick={(e) => e.stopPropagation()}
         >
           <div className={styles.overlayHeader}>
