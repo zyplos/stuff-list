@@ -39,10 +39,10 @@ export default function Home() {
           <h2>the rare</h2>
           <p>
             here's some stuff that is impossible to come by here in the US but
-            that you might see in japan. some of these come with max budgets in
-            case i'm not online for you to ask me about it. others don't have a
-            budget but i'm sure it'll be obvious if its a reasonable price or
-            not
+            have a slight chance of seeing in japan. some of these come with max
+            budgets in case i'm not online for you to ask me about it. others
+            don't have a budget but i'm sure it'll be obvious if its a
+            reasonable price or not
           </p>
         </div>
         <div className={clsx(styles.cardList, "sectionMargin")}>

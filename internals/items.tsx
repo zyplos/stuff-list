@@ -12,11 +12,24 @@ import dsiSoftware from "@/assets/strange-dsi/software.png";
 import plushSmeargle from "@/assets/plush/smeargle.jpg";
 import plushVictini from "@/assets/plush/victini.jpg";
 
-import ddDisk from "@/assets/64dd-disk.jpg";
-
 import disk64 from "@/assets/odd-software/disk64.jpg";
+import diskWii from "@/assets/odd-software/wii.jpeg";
+import diskWiiBackup from "@/assets/odd-software/wii-backup.png";
+import diskWiiU from "@/assets/odd-software/wiiu.jpg";
 
-import diskun from "@/assets/diskun.png";
+import diskun from "@/assets/diskun/diskun.png";
+import diskunDisk from "@/assets/diskun/disk.png";
+
+import nintendoZoneOpen from "@/assets/nintendo-zone/open.png";
+import nintendoZoneOn from "@/assets/nintendo-zone/on.png";
+
+import ddDisk from "@/assets/64dd-disk.jpg";
+import downloadStationCard from "@/assets/download-station-card.png";
+import museumGacha from "@/assets/museum-gacha.jpg";
+import famicomKeyboard from "@/assets/famicom-keyboard.png";
+import serverGacha from "@/assets/server-gacha.jpeg";
+import serverGacha2 from "@/assets/server-gacha-2.jpeg";
+import cpuGacha from "@/assets/cpu-gacha.png";
 
 export const alwaysActiveItems: Item[] = [
   {
@@ -32,7 +45,7 @@ export const alwaysActiveItems: Item[] = [
     name: "odd software",
     description:
       "if you find something that looks weird it is of interest of me",
-    images: [disk64],
+    images: [disk64, diskWiiU, diskWiiBackup, diskWii],
     unlikelyToFind: true,
     maxBudget: "50 USD",
   },
@@ -43,7 +56,7 @@ export const rareItems: Item[] = [
     id: "rare-3ds",
     name: "odd looking 3DS",
     description:
-      "bring back any weird looking 3DSes you find. make sure its not a region exclusive thing that you haven't seen and only sold in japan. will probably have a distinct back label",
+      "bring back any weird looking 3DSes you find. make sure its not a region exclusive thing that you haven't seen and only sold in japan. a real one will probably have a distinct back label",
     images: [x1b, x2, x2Back],
     unlikelyToFind: true,
     maxBudget: "300 USD",
@@ -60,10 +73,24 @@ export const rareItems: Item[] = [
       "this one has a a unique two tone shell. a real one of these should have a distinct back label or weird software",
     images: [dsiFront, dsiBack, dsiSoftware],
     unlikelyToFind: true,
-    maxBudget: "250 USD",
+    maxBudget: "200 USD",
     credits: {
       name: "Consolevariations",
       url: "https://consolevariations.com/collectibles/nintendo-dsi-panda-development-unit-eu",
+    },
+  },
+
+  {
+    id: "nintendo-zone",
+    name: "odd looking DS box",
+    description:
+      "you will not find this and if you do it will probably be very expensive BUT if you see it let me know at least",
+    images: [nintendoZoneOn, nintendoZoneOpen],
+    unlikelyToFind: true,
+    maxBudget: "250 USD",
+    credits: {
+      name: "Consolevariations",
+      url: "https://consolevariations.com/collectibles/nintendo-dsi-zone-box",
     },
   },
 
@@ -77,10 +104,26 @@ export const rareItems: Item[] = [
   },
 
   {
+    id: "download-station-card",
+    name: "download station card",
+    description: "these will have a not for resale label on them",
+    images: [downloadStationCard],
+    maxBudget: "30 USD",
+  },
+
+  {
+    id: "famicom-keyboard",
+    name: "famicom keyboard",
+    description: "will take a non-working one if its priced accordingly",
+    images: [famicomKeyboard],
+    maxBudget: "40 USD",
+  },
+
+  {
     id: "diskun",
     name: "something diskun related",
     description: "anything will do",
-    images: [diskun],
+    images: [diskun, diskunDisk],
     maxBudget: "25 USD",
   },
 ];
@@ -93,11 +136,42 @@ export const normalItems: Item[] = [
       "you'll find this in the pokemon center which you'll probably go to",
     images: [plushSmeargle],
   },
+
   {
     id: "victini-plush",
     name: "victini plush",
     description:
       "you'll find this in the pokemon center which you'll probably go to",
     images: [plushVictini],
+  },
+
+  {
+    id: "museum-gacha",
+    name: "nintendo museum controller minis",
+    description:
+      "i would love to have all of them but its a gacha thing so i guess roll it twice or so",
+    images: [museumGacha],
+  },
+
+  {
+    id: "server-gacha",
+    name: "server gacha",
+    description: "if you happen to be nearby this thing please grab me a thing",
+    images: [serverGacha, serverGacha2],
+    credits: {
+      name: "u/swake88",
+      url: "https://www.reddit.com/r/homelab/comments/1do0m48/the_best_thing_ive_seen_in_japan_so_far_of_course/",
+    },
+  },
+
+  {
+    id: "cpu-gacha",
+    name: "cpu gacha",
+    description: "if you happen to find one of these please roll me a thing",
+    images: [cpuGacha],
+    credits: {
+      name: "@sawarasan",
+      url: "https://www.youtube.com/watch?v=zpU1WiyI3no",
+    },
   },
 ];
