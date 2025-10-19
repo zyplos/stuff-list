@@ -164,18 +164,51 @@
 .overlayContent {
   background: var(--color-card-bg);
   border-radius: var(--radius-l);
-  padding: var(--space-m);
+  padding: 0;
   max-width: 90vw;
   max-height: 90vh;
-  overflow: auto;
+  overflow: hidden;
   position: relative;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
 }
 
+.overlayHeader {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: var(--space-s);
+  padding: var(--space-m);
+  background: var(--color-card-bg);
+  border-top-left-radius: var(--radius-l);
+  border-top-right-radius: var(--radius-l);
+  z-index: 1;
+}
+
+.overlayTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.overlayTitle {
+  margin: 0;
+  font-size: var(--font-size-l);
+}
+
+.overlayMeta {
+  margin: 0;
+  font-size: var(--font-size-s);
+  color: var(--color-text-muted, #666);
+}
+
+.overlayLink {
+  color: inherit;
+  text-decoration: underline;
+}
+
 .closeButton {
-  position: absolute;
-  top: var(--space-s);
-  right: var(--space-s);
   background: #72685c;
   color: white;
   border: none;
@@ -185,7 +218,6 @@
   font-weight: var(--font-weight-bold);
   cursor: pointer;
   transition: background-color 150ms ease;
-  z-index: 10;
 }
 
 .closeButton:hover {
@@ -197,12 +229,19 @@
 }
 
 /* Expanded Grid */
+.overlayBody {
+  padding: var(--space-m);
+  padding-top: 0;
+  max-height: calc(90vh - 4.5rem);
+  overflow: auto;
+}
+
 .expandedGrid {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-m);
   justify-content: center;
-  margin-top: var(--space-l);
+  margin-top: var(--space-m);
 }
 
 .expandedImageContainer {

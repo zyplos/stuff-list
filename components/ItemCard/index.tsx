@@ -1,7 +1,7 @@
 import Image from "next/image";
 import clsx from "clsx";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Item } from "@/internals/types";
 import styles from "./styles.module.css";
 
@@ -19,6 +19,22 @@ export default function ItemCard({
   ...props
 }: ItemCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const previousHtmlOverflow = useRef<string>("");
+
+  // lock background scroll when the overlay is open
+  useEffect(() => {
+    const htmlEl = document.documentElement;
+    if (isExpanded) {
+      previousHtmlOverflow.current = htmlEl.style.overflow;
+      htmlEl.style.overflow = "hidden";
+    } else {
+      htmlEl.style.overflow = previousHtmlOverflow.current;
+    }
+
+    return () => {
+      htmlEl.style.overflow = previousHtmlOverflow.current;
+    };
+  }, [isExpanded]);
 
   const handleImageStackClick = () => {
     setIsExpanded(true);
@@ -43,7 +59,6 @@ export default function ItemCard({
           {item.images.map((image, index) => (
             <motion.div
               key={`${item.id}-image-${index}`}
-              layoutId={`${item.id}-image-${index}`}
               className={clsx(styles.imageContainer, {
                 [styles.firstImage]: index === 0,
                 [styles.stackedImage]: index > 0,
@@ -66,22 +81,22 @@ export default function ItemCard({
                 hover:
                   index === 1
                     ? {
-                        x: "-50%",
-                        y: "-65%",
+                        x: "-33%",
+                        y: "-33%",
                         rotate: "5deg",
                         transition: { duration: 0.1, ease: "easeOut" },
                       }
                     : index === 2
                       ? {
-                          x: "-55%",
-                          y: "-65%",
+                          x: "-75%",
+                          y: "-60%",
                           rotate: "-4deg",
                           transition: { duration: 0.1, ease: "easeOut" },
                         }
                       : index === 3
                         ? {
-                            x: "-45%",
-                            y: "-55%",
+                            x: "-20%",
+                            y: "-60%",
                             rotate: "3deg",
                             transition: { duration: 0.1, ease: "easeOut" },
                           }
@@ -146,7 +161,7 @@ export default function ItemCard({
           [styles.overlayHidden]: !isExpanded,
         })}
         animate={{ opacity: isExpanded ? 1 : 0 }}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.15 }}
         onClick={handleClose}
       >
         <motion.div
@@ -155,32 +170,52 @@ export default function ItemCard({
             scale: isExpanded ? 1 : 0.8,
             opacity: isExpanded ? 1 : 0,
           }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.15 }}
           onClick={(e) => e.stopPropagation()}
         >
-          <button
-            className={styles.closeButton}
-            onClick={handleClose}
-            type="button"
-          >
-            Close
-          </button>
-          <div className={styles.expandedGrid}>
-            {item.images.map((image, index) => (
-              <motion.div
-                key={`${item.id}-image-${index}`}
-                layoutId={`${item.id}-image-${index}`}
-                // className={styles.expandedImageContainer}
-              >
-                <Image
-                  src={image}
-                  alt={`${item.name} ${index + 1}`}
-                  width={512}
-                  height={512}
-                  className={styles.expandedImage}
-                />
-              </motion.div>
-            ))}
+          <div className={styles.overlayHeader}>
+            <div className={styles.overlayTitleGroup}>
+              <h3 className={styles.overlayTitle}>{item.name}</h3>
+              {item.credits && (
+                <p className={styles.overlayMeta}>
+                  Credits:{" "}
+                  {item.credits.url ? (
+                    <a
+                      href={item.credits.url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className={styles.overlayLink}
+                    >
+                      @{item.credits.name}
+                    </a>
+                  ) : (
+                    <>@{item.credits.name}</>
+                  )}
+                </p>
+              )}
+            </div>
+            <button
+              className={styles.closeButton}
+              onClick={handleClose}
+              type="button"
+            >
+              Close
+            </button>
+          </div>
+          <div className={styles.overlayBody}>
+            <div className={styles.expandedGrid}>
+              {item.images.map((image, index) => (
+                <motion.div key={`${item.id}-image-${index}`}>
+                  <Image
+                    src={image}
+                    alt={`${item.name} ${index + 1}`}
+                    width={512}
+                    height={512}
+                    className={styles.expandedImage}
+                  />
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </motion.div>
