@@ -37,13 +37,14 @@ import famicomKeyboard from "@/assets/famicom-keyboard.jpg";
 import serverGacha from "@/assets/server-gacha.jpeg";
 import serverGacha2 from "@/assets/server-gacha-2.jpeg";
 import cpuGacha from "@/assets/cpu-gacha.jpg";
+import mother3 from "@/assets/mother3.jpg";
 
 export const alwaysActiveItems: Item[] = [
   {
     id: "kit-kats",
     name: "kit kats",
     description:
-      "bring back all the ones you find\ndon't bring ones you've seen in the US already",
+      "bring back all the ones you find, don't bring too many of the same one\ndon't bring ones you've seen in the US already",
     images: [kitKats],
   },
 
@@ -188,6 +189,14 @@ export const normalItems: Item[] = [
       name: "@sawarasan",
       url: "https://www.youtube.com/watch?v=zpU1WiyI3no",
     },
+  },
+
+  {
+    id: "mother3",
+    name: "copy of mother 3",
+    description: "low ball offer",
+    maxBudget: "25 USD",
+    images: [mother3],
   },
 
   {

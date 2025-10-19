@@ -24,7 +24,7 @@ export default function Home() {
         <div className="textContent sectionMargin">
           <h1>hi guys</h1>
           <p>you gotta bring these back for me thank you</p>
-          <p>keep receipts and i will pay it back</p>
+          <p>keep receipts and i will pay it back. i don't expect you guys to find everything on this list so you won't break bank</p>
           <p>here's the list:</p>
         </div>
 

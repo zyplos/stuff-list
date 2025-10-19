@@ -43,7 +43,7 @@ export default function NavBar() {
   return (
     <nav className={styles.navbarWrapper}>
       <div className={clsx(styles.navbar, "responsiveCenteredContainer")}>
-        <span className={styles.title}>stuff</span>
+        <span className={styles.title}>stuff list</span>
 
         <div className={styles.timeWrapper}>
           <BeanIcon />
