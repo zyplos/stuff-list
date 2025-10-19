@@ -118,6 +118,7 @@ export default function ItemCard({
                 width={512}
                 height={512}
                 className={styles.image}
+                priority
               />
             </motion.div>
           ))}
