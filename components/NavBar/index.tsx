@@ -1,7 +1,45 @@
 import clsx from "clsx";
+import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 
 export default function NavBar() {
+  const [timeParts, setTimeParts] = useState<{
+    hour: string;
+    minute: string;
+    period: string;
+  }>({
+    hour: "",
+    minute: "",
+    period: "",
+  });
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const chicagoTime = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Chicago",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      }).format(now);
+
+      // Split the time into parts for the colon animation
+      const [time, period] = chicagoTime.split(" ");
+      const [hour, minute] = time.split(":");
+
+      setTimeParts({ hour, minute, period });
+    };
+
+    // Update immediately
+    updateTime();
+
+    // Update every second
+    const interval = setInterval(updateTime, 1000);
+
+    // Cleanup interval on unmount
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <nav className={styles.navbarWrapper}>
       <div className={clsx(styles.navbar, "responsiveCenteredContainer")}>
@@ -9,7 +47,11 @@ export default function NavBar() {
 
         <div className={styles.timeWrapper}>
           <BeanIcon />
-          <span>3:00 PM</span>
+          <span className={styles.timeDisplay}>
+            {timeParts.hour}
+            <span className={styles.blinkingColon}>:</span>
+            {timeParts.minute} {timeParts.period}
+          </span>
         </div>
       </div>
     </nav>
