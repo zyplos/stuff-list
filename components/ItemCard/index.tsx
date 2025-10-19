@@ -10,6 +10,7 @@ interface ItemCardProps extends React.HTMLAttributes<HTMLDivElement> {
   alwaysActive?: boolean;
   onFoundIt?: () => void;
   onSawButExpensive?: () => void;
+  onMarkAsUncomplete?: () => void;
   status?: ItemStatus;
 }
 
@@ -18,6 +19,7 @@ export default function ItemCard({
   alwaysActive,
   onFoundIt,
   onSawButExpensive,
+  onMarkAsUncomplete,
   status,
   className,
   ...props
@@ -52,7 +54,6 @@ export default function ItemCard({
     <>
       <div
         className={clsx(styles.card, className, {
-          [styles.sawButExpensive]: status === "saw",
           [styles.complete]: status === "complete",
         })}
         {...props}
@@ -151,23 +152,37 @@ export default function ItemCard({
             <p className="bold">Max budget: {item.maxBudget}</p>
           )}
 
+          {status === "saw" && <p>You saw it already but was too expensive</p>}
+
           {!alwaysActive && (
             <div className={styles.buttons}>
-              <button
-                className={clsx(styles.button, styles.foundButton)}
-                onClick={onFoundIt}
-                type="button"
-              >
-                Got it!
-              </button>
-              {item.maxBudget && (
+              {status === "complete" ? (
                 <button
-                  className={clsx(styles.button, styles.expensiveButton)}
-                  onClick={onSawButExpensive}
+                  className={clsx(styles.button)}
+                  onClick={onMarkAsUncomplete}
                   type="button"
                 >
-                  Saw it, but too expensive to get
+                  Never mind, didn't find this
                 </button>
+              ) : (
+                <>
+                  <button
+                    className={clsx(styles.button, styles.foundButton)}
+                    onClick={onFoundIt}
+                    type="button"
+                  >
+                    Got it!
+                  </button>
+                  {item.maxBudget && status !== "saw" && (
+                    <button
+                      className={clsx(styles.button, styles.expensiveButton)}
+                      onClick={onSawButExpensive}
+                      type="button"
+                    >
+                      Saw it, but too expensive to get
+                    </button>
+                  )}
+                </>
               )}
             </div>
           )}

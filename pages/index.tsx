@@ -6,6 +6,7 @@ import { alwaysActiveItems, rareItems, normalItems } from "@/internals/items";
 import {
   updateItemStatus,
   subscribeToAllItems,
+  deleteItemStatus,
 } from "@/internals/firebase/database";
 import type { ItemStatus } from "@/internals/types";
 import clsx from "clsx";
@@ -50,6 +51,18 @@ export default function Home() {
     updateItemStatus(itemId, "saw");
   };
 
+  const handleMarkAsUncomplete = (itemId: string) => {
+    // Update local state immediately (optimistic update)
+    setItemStatuses((prev) => {
+      const newStatuses = { ...prev };
+      delete newStatuses[itemId];
+      return newStatuses;
+    });
+
+    // Update Firebase in background
+    deleteItemStatus(itemId);
+  };
+
   return (
     <>
       <Head>
@@ -88,6 +101,7 @@ export default function Home() {
               status={itemStatuses[item.id]}
               onFoundIt={() => handleFoundIt(item.id)}
               onSawButExpensive={() => handleSawButExpensive(item.id)}
+              onMarkAsUncomplete={() => handleMarkAsUncomplete(item.id)}
             />
           ))}
         </div>
@@ -110,6 +124,7 @@ export default function Home() {
               status={itemStatuses[item.id]}
               onFoundIt={() => handleFoundIt(item.id)}
               onSawButExpensive={() => handleSawButExpensive(item.id)}
+              onMarkAsUncomplete={() => handleMarkAsUncomplete(item.id)}
             />
           ))}
         </div>
@@ -126,6 +141,7 @@ export default function Home() {
               status={itemStatuses[item.id]}
               onFoundIt={() => handleFoundIt(item.id)}
               onSawButExpensive={() => handleSawButExpensive(item.id)}
+              onMarkAsUncomplete={() => handleMarkAsUncomplete(item.id)}
             />
           ))}
         </div>
