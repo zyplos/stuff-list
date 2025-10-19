@@ -10,6 +10,14 @@
   gap: var(--space-m);
 }
 
+.sawButExpensive {
+  background: yellow;
+}
+
+.complete {
+  background: green;
+}
+
 /* Image Stack */
 .imageStack {
   position: relative;

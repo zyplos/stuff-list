@@ -2,7 +2,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import type { Item } from "@/internals/types";
+import type { Item, ItemStatus } from "@/internals/types";
 import styles from "./styles.module.css";
 
 interface ItemCardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -10,6 +10,7 @@ interface ItemCardProps extends React.HTMLAttributes<HTMLDivElement> {
   alwaysActive?: boolean;
   onFoundIt?: () => void;
   onSawButExpensive?: () => void;
+  status?: ItemStatus;
 }
 
 export default function ItemCard({
@@ -17,6 +18,7 @@ export default function ItemCard({
   alwaysActive,
   onFoundIt,
   onSawButExpensive,
+  status,
   className,
   ...props
 }: ItemCardProps) {
@@ -48,7 +50,13 @@ export default function ItemCard({
 
   return (
     <>
-      <div className={clsx(styles.card, className)} {...props}>
+      <div
+        className={clsx(styles.card, className, {
+          [styles.sawButExpensive]: status === "saw",
+          [styles.complete]: status === "complete",
+        })}
+        {...props}
+      >
         {/* Image Stack */}
         <motion.button
           className={styles.imageStack}
