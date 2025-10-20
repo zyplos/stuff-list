@@ -1,6 +1,7 @@
 .navbarWrapper {
   padding: var(--space-m);
-  background-color: var(--color-background-secondary);
+  background-color: var(--color-navbar-background);
+  backdrop-filter: blur(20px);
 
   position: fixed;
   top: 0;

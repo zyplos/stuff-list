@@ -74,6 +74,8 @@
 
   /* components */
 
+  --color-navbar-background: rgba(24, 20, 20, 0.8);
+
   --color-alert-info-text: #fff;
   --color-alert-info-bg: #4265b1;
 
