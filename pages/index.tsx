@@ -83,7 +83,7 @@ export default function Home() {
           <p>you gotta bring these back for me thank you</p>
           <p>
             keep receipts and i will pay it back. i don't expect you guys to
-            find everything on this list so you won't break bank
+            find everything on this list so you won't break the bank
           </p>
           <p>here's the list:</p>
         </div>

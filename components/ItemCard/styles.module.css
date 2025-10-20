@@ -109,7 +109,7 @@
 .button {
   border: none;
   border-radius: var(--radius);
-  padding: var(--space-s) var(--space-m);
+  padding: var(--space) var(--space-l);
   font-size: var(--font-size);
   font-weight: var(--font-weight-bold);
   cursor: pointer;
@@ -127,7 +127,7 @@
 }
 
 .foundButton {
-  background: #00aa3e;
+  background: #25924f;
   color: white;
 }
 

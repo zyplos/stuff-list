@@ -84,41 +84,46 @@ export default function ItemCard({
                 ...(index > 0 && {
                   x: "-50%",
                   y: "-50%",
-                  rotate: index % 2 === 0 ? "5deg" : "-4deg",
+                  rotate: index % 2 === 0 ? "8deg" : "-6deg",
                 }),
               }}
               variants={{
                 rest: {},
                 hover:
-                  index === 1
+                  index === 0
                     ? {
-                        x: "-33%",
-                        y: "-33%",
-                        rotate: "5deg",
-                        transition: { duration: 0.05, ease: "easeOut" },
+                        scale: 1.1,
+                        transition: { duration: 0.1, ease: "easeOut" },
                       }
-                    : index === 2
+                    : index === 1
                       ? {
-                          x: "-75%",
-                          y: "-60%",
-                          rotate: "-4deg",
+                          x: "-33%",
+                          y: "-33%",
+                          rotate: "5deg",
                           transition: { duration: 0.05, ease: "easeOut" },
                         }
-                      : index === 3
+                      : index === 2
                         ? {
-                            x: "-20%",
+                            x: "-75%",
                             y: "-60%",
-                            rotate: "3deg",
+                            rotate: "-4deg",
                             transition: { duration: 0.05, ease: "easeOut" },
                           }
-                        : index === 4
+                        : index === 3
                           ? {
-                              x: "-35%",
-                              y: "-45%",
-                              rotate: "-2deg",
+                              x: "-20%",
+                              y: "-60%",
+                              rotate: "3deg",
                               transition: { duration: 0.05, ease: "easeOut" },
                             }
-                          : {},
+                          : index === 4
+                            ? {
+                                x: "-35%",
+                                y: "-45%",
+                                rotate: "-2deg",
+                                transition: { duration: 0.05, ease: "easeOut" },
+                              }
+                            : {},
               }}
             >
               <Image
