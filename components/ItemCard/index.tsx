@@ -160,7 +160,7 @@ export default function ItemCard({
 
           {!alwaysActive && (
             <div className={styles.buttons}>
-              {status === "complete" || status === "saw" ? (
+              {status === "complete" && (
                 <button
                   className={clsx(styles.button)}
                   onClick={onMarkAsUncomplete}
@@ -168,7 +168,9 @@ export default function ItemCard({
                 >
                   Never mind, didn't find this
                 </button>
-              ) : (
+              )}
+
+              {status === "saw" && (
                 <>
                   <button
                     className={clsx(styles.button, styles.foundButton)}
@@ -177,7 +179,26 @@ export default function ItemCard({
                   >
                     Got it!
                   </button>
-                  {item.maxBudget && status !== "saw" && (
+                  <button
+                    className={clsx(styles.button)}
+                    onClick={onMarkAsUncomplete}
+                    type="button"
+                  >
+                    Never mind, saw the wrong thing
+                  </button>
+                </>
+              )}
+
+              {!status && (
+                <>
+                  <button
+                    className={clsx(styles.button, styles.foundButton)}
+                    onClick={onFoundIt}
+                    type="button"
+                  >
+                    Got it!
+                  </button>
+                  {item.maxBudget && (
                     <button
                       className={clsx(styles.button, styles.expensiveButton)}
                       onClick={onSawButExpensive}
