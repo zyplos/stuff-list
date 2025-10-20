@@ -39,6 +39,10 @@ import serverGacha2 from "@/assets/server-gacha-2.jpeg";
 import cpuGacha from "@/assets/cpu-gacha.jpg";
 import mother3 from "@/assets/mother3.jpg";
 import caveStory from "@/assets/cave-story.jpg";
+import galaxyDisk from "@/assets/galaxy-disk.jpg";
+import splatune from "@/assets/splatune/first.jpg";
+import splatune2 from "@/assets/splatune/second.jpg";
+import splatune3 from "@/assets/splatune/third.jpg";
 
 export const alwaysActiveItems: Item[] = [
   {
@@ -115,7 +119,8 @@ export const rareItems: Item[] = [
   {
     id: "download-station-card",
     name: "download station card",
-    description: "these will have a not for resale label on them",
+    description:
+      "these will have a not for resale label on them\nyou might come across multiple of these, i just want one",
     images: [downloadStationCard],
     maxBudget: "30 USD",
   },
@@ -205,6 +210,35 @@ export const normalItems: Item[] = [
     name: "something 洞窟物語 related",
     description: "do not bring me a copy of the game on any system",
     images: [caveStory],
+  },
+
+  {
+    id: "smg-ost-cd",
+    name: "smg ost cd",
+    description: "cover might also come in gray",
+    maxBudget: "15 USD",
+    images: [galaxyDisk],
+  },
+
+  {
+    id: "splatune",
+    name: "splatune cd",
+    description: "i need this for my zune",
+    images: [splatune],
+  },
+
+  {
+    id: "splatune-2",
+    name: "splatune 2 cd",
+    description: "i need this for my zune",
+    images: [splatune2],
+  },
+
+  {
+    id: "splatune-3",
+    name: "splatune 3 cd",
+    description: "i need this for my zune",
+    images: [splatune3],
   },
 
   {
