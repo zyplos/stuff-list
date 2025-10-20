@@ -152,11 +152,15 @@ export default function ItemCard({
             <p className="bold">Max budget: {item.maxBudget}</p>
           )}
 
-          {status === "saw" && <p>You saw it already but was too expensive</p>}
+          {status === "saw" && (
+            <p className="textMuted">
+              This item was found but it was expensive.
+            </p>
+          )}
 
           {!alwaysActive && (
             <div className={styles.buttons}>
-              {status === "complete" ? (
+              {status === "complete" || status === "saw" ? (
                 <button
                   className={clsx(styles.button)}
                   onClick={onMarkAsUncomplete}
