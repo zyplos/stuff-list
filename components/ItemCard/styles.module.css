@@ -109,13 +109,19 @@
 .button {
   border: none;
   border-radius: var(--radius);
-  padding: var(--space) var(--space-l);
+  padding: var(--space) var(--space-m);
   font-size: var(--font-size);
   font-weight: var(--font-weight-bold);
   cursor: pointer;
   transition:
     background-color 150ms ease,
     scale 150ms ease-out;
+}
+
+@media (min-width: 1000px) {
+  .button {
+    padding: var(--space-s) var(--space-m);
+  }
 }
 
 .button:hover {
