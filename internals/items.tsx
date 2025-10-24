@@ -44,6 +44,9 @@ import splatune from "@/assets/splatune/first.jpg";
 import splatune2 from "@/assets/splatune/second.jpg";
 import splatune3 from "@/assets/splatune/third.jpg";
 
+import netbook from "@/assets/netbook.jpg";
+import nippon from "@/assets/nippon.png";
+
 export const alwaysActiveItems: Item[] = [
   {
     id: "kit-kats",
@@ -239,6 +242,21 @@ export const normalItems: Item[] = [
     name: "splatune 3 cd",
     description: "i need this for my zune",
     images: [splatune3],
+  },
+
+  {
+    id: "netbook",
+    name: "an old netbook",
+    description: "these will likely run something older than windows 7",
+    maxBudget: "2000 JPY",
+    images: [netbook],
+  },
+
+  {
+    id: "wildcard-joke-item",
+    name: "an item imbued with the spirit of glorious nippon",
+    description: "",
+    images: [nippon],
   },
 
   {
