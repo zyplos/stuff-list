@@ -1,5 +1,6 @@
-import clsx from "clsx";
 import { useEffect, useState } from "react";
+import clsx from "clsx";
+import { motion } from "motion/react";
 import styles from "./styles.module.css";
 
 export default function NavBar() {
@@ -45,14 +46,27 @@ export default function NavBar() {
       <div className={clsx(styles.navbar, "responsiveCenteredContainer")}>
         <span className={styles.title}>stuff list</span>
 
-        <div className={styles.timeWrapper}>
+        <motion.div
+          className={styles.timeWrapper}
+          initial={{
+            opacity: 0,
+            filter: "blur(5px)",
+            transform: "scale(0.95)",
+          }}
+          animate={{
+            opacity: 1,
+            filter: "blur(0px)",
+            transform: "scale(1)",
+          }}
+          transition={{ duration: 0.3, ease: "easeIn", delay: 1 }}
+        >
           <BeanIcon />
           <span className={styles.timeDisplay}>
             {timeParts.hour}
             <span className={styles.blinkingColon}>:</span>
             {timeParts.minute} {timeParts.period}
           </span>
-        </div>
+        </motion.div>
       </div>
     </nav>
   );
