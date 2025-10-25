@@ -17,6 +17,10 @@ export default function Home() {
     {},
   );
 
+  const numberOfFoundItems = Object.values(itemStatuses).filter(
+    (status) => status === "complete",
+  ).length;
+
   // Set up real-time listener for all item statuses
   useEffect(() => {
     const unsubscribe = subscribeToAllItems((statuses) => {
@@ -85,6 +89,13 @@ export default function Home() {
             keep receipts and i will pay it back. i don't expect you guys to
             find everything on this list so you won't break the bank
           </p>
+          {numberOfFoundItems > 0 && (
+            <p className="textMuted">
+              you've gotten {numberOfFoundItems} thing
+              {numberOfFoundItems === 1 ? "" : "s"} so far. thanks!
+            </p>
+          )}
+
           <p>here's the list:</p>
         </div>
 

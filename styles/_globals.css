@@ -5,6 +5,12 @@
   margin: 0;
 }
 
+/* prevent flashing of wrong color on load */
+html,
+body {
+  background-color: #000;
+}
+
 html,
 body,
 #root {

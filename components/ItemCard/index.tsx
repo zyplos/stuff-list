@@ -154,7 +154,9 @@ export default function ItemCard({
           </div>
 
           {item.maxBudget && (
-            <p className="bold">Max budget: {item.maxBudget}</p>
+            <p className={clsx(styles.budget, "bold")}>
+              Max budget: {item.maxBudget}
+            </p>
           )}
 
           {status === "saw" && (
@@ -185,7 +187,7 @@ export default function ItemCard({
                     Got it!
                   </button>
                   <button
-                    className={clsx(styles.button)}
+                    className={clsx(styles.button, styles.defaultButton)}
                     onClick={onMarkAsUncomplete}
                     type="button"
                   >
@@ -257,7 +259,7 @@ export default function ItemCard({
               )}
             </div>
             <button
-              className={styles.closeButton}
+              className={clsx(styles.button, styles.defaultButton)}
               onClick={handleClose}
               type="button"
             >

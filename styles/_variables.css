@@ -56,25 +56,27 @@
 :root {
   color-scheme: dark;
 
-  --color-text: #fff5f5;
+  --color-text: #cfc7c7;
   --color-background-lighter: #382929;
-  --color-background: #201919;
+  --color-background: #000;
   --color-background-secondary: #181414;
   --color-background-tertiary: #080808;
+  --color-container-border: rgb(102 80 80 / 50%);
+  --color-container-border-hover: rgb(218 162 162 / 50%);
 
   --color-primary: #ff3e3e;
   --color-secondary: #ffd300;
   --color-accent: #fff;
   --color-highlight: #ff4000;
 
-  --color-muted: #d4b6b6;
+  --color-muted: #a39393;
   --color-dark-gray: #000;
   --color-dark-gray-accent: #353535;
   --color-link: #ffa5a5;
 
   /* components */
 
-  --color-navbar-background: rgba(24, 20, 20, 0.8);
+  --color-navbar-background: rgba(8, 8, 8, 0.8);
 
   --color-alert-info-text: #fff;
   --color-alert-info-bg: #4265b1;
@@ -84,6 +86,5 @@
   --color-button-hover-background: #ff5555;
   --color-button-active-background: #e72828;
 
-  --color-card-bg: #473a3a;
-  --color-card-bg-secondary: #493a3a;
+  --color-card-bg: #0c0a0a;
 }

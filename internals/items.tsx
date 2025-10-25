@@ -250,6 +250,10 @@ export const normalItems: Item[] = [
     description: "these will likely run something older than windows 7",
     maxBudget: "2000 JPY",
     images: [netbook],
+    credits: {
+      name: "@knshtyk",
+      url: "https://x.com/knshtyk/status/1981353424542470390",
+    },
   },
 
   {

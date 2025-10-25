@@ -8,6 +8,13 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-m);
+  border: 1px solid var(--color-container-border);
+
+  transition: border-color 120ms ease-out;
+}
+
+.card:has(.imageStack:hover) {
+  border-color: var(--color-container-border-hover);
 }
 
 .complete {
@@ -85,6 +92,17 @@
   height: 1.5em;
 }
 
+.budget {
+  background-color: #082139;
+  color: #b7c7ed;
+  border: 1px solid rgb(68 82 109 / 56%);
+
+  padding: var(--space-xs) var(--space-s);
+
+  width: fit-content;
+  border-radius: var(--radius);
+}
+
 .description {
   font-size: var(--font-size);
   color: var(--color-text);
@@ -113,8 +131,10 @@
   font-size: var(--font-size);
   font-weight: var(--font-weight-bold);
   cursor: pointer;
+
   transition:
     background-color 150ms ease,
+    color 150ms ease,
     scale 150ms ease-out;
 }
 
@@ -132,30 +152,47 @@
   scale: 0.99;
 }
 
+.defaultButton {
+  background-color: #231c1c;
+  color: #c7a3a3;
+}
+
+.defaultButton:hover {
+  background-color: #392e2e;
+  color: #e5c4c4;
+}
+
+.defaultButton:active {
+  background-color: #534141;
+}
+
 .foundButton {
-  background: #25924f;
-  color: white;
+  background: #082e17;
+  color: #5eff69;
 }
 
 .foundButton:hover {
-  background: #01be47;
+  background: #00461c;
 }
 
 .foundButton:active {
   background: #007e2e;
+  color: #baffbf;
 }
 
 .expensiveButton {
-  background: #72685c;
-  color: white;
+  background: #332d27;
+  color: #c5bf92;
 }
 
 .expensiveButton:hover {
-  background: #918372;
+  background: #493f36;
+  color: #fffad5;
 }
 
 .expensiveButton:active {
-  background: #312721;
+  background: #6b5c4e;
+  color: #fffad5;
 }
 
 /* Overlay Styles */
@@ -223,26 +260,6 @@
 .overlayLink {
   color: inherit;
   text-decoration: underline;
-}
-
-.closeButton {
-  background: #72685c;
-  color: white;
-  border: none;
-  border-radius: var(--radius);
-  padding: var(--space-s) var(--space);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight-bold);
-  cursor: pointer;
-  transition: background-color 150ms ease;
-}
-
-.closeButton:hover {
-  background: #918372;
-}
-
-.closeButton:active {
-  background: #312721;
 }
 
 /* Expanded Grid */
