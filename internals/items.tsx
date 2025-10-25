@@ -246,8 +246,9 @@ export const normalItems: Item[] = [
 
   {
     id: "netbook",
-    name: "an old netbook",
-    description: "these will likely run something older than windows 7",
+    name: "an old tiny netbook",
+    description:
+      "the kind that fit in the palm of your hand. these will likely run something older than windows 7",
     maxBudget: "2000 JPY",
     images: [netbook],
     credits: {
