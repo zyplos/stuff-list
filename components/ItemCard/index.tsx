@@ -173,7 +173,7 @@ export default function ItemCard({
                   onClick={onMarkAsUncomplete}
                   type="button"
                 >
-                  Never mind, didn't find this
+                  Nevermind, didn't find this
                 </button>
               )}
 
@@ -191,7 +191,7 @@ export default function ItemCard({
                     onClick={onMarkAsUncomplete}
                     type="button"
                   >
-                    Never mind, saw the wrong thing
+                    Nevermind, saw the wrong thing
                   </button>
                 </>
               )}

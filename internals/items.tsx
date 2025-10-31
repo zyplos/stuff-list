@@ -147,6 +147,13 @@ export const rareItems: Item[] = [
 
 export const normalItems: Item[] = [
   {
+    id: "wildcard-joke-item",
+    name: "an item imbued with the spirit of glorious nippon",
+    description: "",
+    images: [nippon],
+  },
+
+  {
     id: "smeargle-plush",
     name: "smeargle plush",
     description:
@@ -255,13 +262,6 @@ export const normalItems: Item[] = [
       name: "@knshtyk",
       url: "https://x.com/knshtyk/status/1981353424542470390",
     },
-  },
-
-  {
-    id: "wildcard-joke-item",
-    name: "an item imbued with the spirit of glorious nippon",
-    description: "",
-    images: [nippon],
   },
 
   {
