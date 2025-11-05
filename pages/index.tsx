@@ -7,7 +7,8 @@ import {
   updateItemStatus,
   subscribeToAllItems,
   deleteItemStatus,
-} from "@/internals/firebase/database";
+  useFirebase,
+} from "@/internals/database";
 import type { ItemStatus } from "@/internals/types";
 import clsx from "clsx";
 import NavBar from "@/components/NavBar";
@@ -66,6 +67,8 @@ export default function Home() {
     // Update Firebase in background
     deleteItemStatus(itemId);
   };
+
+  console.log("useFirebase", useFirebase);
 
   return (
     <>
@@ -140,7 +143,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="textContent bottomSpaceMargin">
+        <div className="textContent sectionMargin">
           <h2>stuff you'll probably find</h2>
           <p>you'll eventually come across these</p>
         </div>
@@ -156,6 +159,12 @@ export default function Home() {
             />
           ))}
         </div>
+
+        {!useFirebase && (
+          <div className={styles.localStateAlert}>
+            Firebase not set up, using local React state
+          </div>
+        )}
       </main>
     </>
   );
