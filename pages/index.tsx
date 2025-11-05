@@ -68,8 +68,6 @@ export default function Home() {
     deleteItemStatus(itemId);
   };
 
-  console.log("useFirebase", useFirebase);
-
   return (
     <>
       <Head>
