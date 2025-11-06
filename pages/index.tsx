@@ -3,12 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
 import ItemCard from "@/components/ItemCard";
 import { alwaysActiveItems, rareItems, normalItems } from "@/internals/items";
-import {
-  updateItemStatus,
-  subscribeToAllItems,
-  deleteItemStatus,
-  useFirebase,
-} from "@/internals/database";
+import datastore from "@/internals/database";
 import type { ItemStatus } from "@/internals/types";
 import clsx from "clsx";
 import NavBar from "@/components/NavBar";
@@ -24,7 +19,7 @@ export default function Home() {
 
   // Set up real-time listener for all item statuses
   useEffect(() => {
-    const unsubscribe = subscribeToAllItems((statuses) => {
+    const unsubscribe = datastore.subscribeToAllItems((statuses) => {
       setItemStatuses(statuses);
     });
 
@@ -35,37 +30,43 @@ export default function Home() {
 
   // Handler functions for button clicks
   const handleFoundIt = (itemId: string) => {
-    // Update local state immediately (optimistic update)
-    setItemStatuses((prev) => ({
-      ...prev,
-      [itemId]: "complete",
-    }));
+    if (datastore.isRemote) {
+      // Optimistic update for remote stores to improve user experience
+      setItemStatuses((prev) => ({
+        ...prev,
+        [itemId]: "complete",
+      }));
+    }
 
-    // Update Firebase in background
-    updateItemStatus(itemId, "complete");
+    // Update store in background
+    datastore.updateItemStatus(itemId, "complete");
   };
 
   const handleSawButExpensive = (itemId: string) => {
-    // Update local state immediately (optimistic update)
-    setItemStatuses((prev) => ({
-      ...prev,
-      [itemId]: "saw",
-    }));
+    if (datastore.isRemote) {
+      // Optimistic update for remote stores to improve user experience
+      setItemStatuses((prev) => ({
+        ...prev,
+        [itemId]: "saw",
+      }));
+    }
 
-    // Update Firebase in background
-    updateItemStatus(itemId, "saw");
+    // Update store in background
+    datastore.updateItemStatus(itemId, "saw");
   };
 
   const handleMarkAsUncomplete = (itemId: string) => {
-    // Update local state immediately (optimistic update)
-    setItemStatuses((prev) => {
-      const newStatuses = { ...prev };
-      delete newStatuses[itemId];
-      return newStatuses;
-    });
+    if (datastore.isRemote) {
+      // Optimistic update for remote stores to improve user experience
+      setItemStatuses((prev) => {
+        const newStatuses = { ...prev };
+        delete newStatuses[itemId];
+        return newStatuses;
+      });
+    }
 
-    // Update Firebase in background
-    deleteItemStatus(itemId);
+    // Update store in background
+    datastore.deleteItemStatus(itemId);
   };
 
   return (
@@ -158,9 +159,9 @@ export default function Home() {
           ))}
         </div>
 
-        {!useFirebase && (
+        {!datastore.isRemote && (
           <div className={styles.localStateAlert}>
-            Firebase not set up, using local React state
+            Using local state. Data will not be saved.
           </div>
         )}
       </main>
