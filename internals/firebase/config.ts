@@ -1,6 +1,6 @@
 // cSpell:disable
-import { getApp, getApps, initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
+import { getApp, getApps, initializeApp, type FirebaseApp } from "firebase/app";
+import { getDatabase, type Database } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -12,5 +12,12 @@ const firebaseConfig = {
   databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
 };
 
-export const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-export const db = getDatabase(app);
+let app: FirebaseApp | null = null;
+let db: Database | null = null;
+
+if (firebaseConfig.databaseURL) {
+  app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+  db = getDatabase(app);
+}
+
+export { app, db };
