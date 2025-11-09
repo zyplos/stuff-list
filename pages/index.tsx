@@ -142,7 +142,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="textContent sectionMargin">
+        <div className="textContent bottomSpaceMargin">
           <h2>stuff you'll probably find</h2>
           <p>you'll eventually come across these</p>
         </div>
