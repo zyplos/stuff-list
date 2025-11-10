@@ -1,40 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# stuff-list
 
-## Getting Started
+a scavenger hunt list thing i quickly whipped up
 
-First, run the development server:
+i had a few friends travel to japan to i made this to have them look for stuff i would've looked for if i had also gone there. pushed to github with a few touchups and this README as a bit of writeup
+
+made with next.js and motion and some help from gemini 2.5 pro and whatever models Cursor used for their "auto" agent during october 2026
+
+uses firebase as a quick way to get data saving. also nicely comes with live auto updates if multiple people have the website open.
+
+![screenshot](./screenshot.png)
+
+*if you go to japan, maybe you can bring these back for me too? :)*
+
+## project setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+# clone repo
+git clone https://github.com/zyplos/stuff-list.git & cd stuff-list
+# install dependencies
+bun i
+# run dev server
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+items are defined in `./internals/items.tsx` instead of a database as a easy quick way to set your list up. you can see what information items can have in `./internals/types.ts` or look at the existing items as examples.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+nothing is saved by default. if you want your checklist to save you'll need to set up firebase. make a new firebase project and note down the config values it gives you. then go to the realtime database on the sidebar, provision your database, and copy the url.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+duplicate the `.env.example` file to `.env` and fill out the list with its appropriate values.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+you can find the firebase rules i used in `./firebase-rules.json`.

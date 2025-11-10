@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "items": {
+      ".read": true,
+      "$itemId": {
+        ".write": true,
+        ".validate": "newData.isString() && (newData.val() === 'complete' || newData.val() === 'saw')"
+      }
+    }
+  }
+}
